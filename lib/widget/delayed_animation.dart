@@ -4,7 +4,7 @@ import 'dart:async';
 class DelayedAnimation extends StatefulWidget {
   final Widget child;
   final int delay;
-  const DelayedAnimation({required this.child, required this.delay});
+  const DelayedAnimation({required this.delay, required this.child});
 
   @override
   State<DelayedAnimation> createState() => _DelayedAnimationState();
@@ -21,7 +21,7 @@ class _DelayedAnimationState extends State<DelayedAnimation>
     _controller =
         AnimationController(
           vsync: this, 
-          duration: Duration(milliseconds: 1000),
+          duration: Duration(milliseconds: 1500),
     );
 
     final curve = CurvedAnimation(
@@ -30,7 +30,7 @@ class _DelayedAnimationState extends State<DelayedAnimation>
     );
 
     _animeOffset = Tween<Offset>(
-      begin: Offset(0.0, -0.2),
+      begin: Offset(0.0, 0.0),
       end: Offset.zero,
     ).animate(curve);
 
